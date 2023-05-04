@@ -11,4 +11,9 @@ class SubtopicController {
     
     static let shared = SubtopicController()
     var subtopics: [Subtopic] = []
+    
+    func getSubtopics(for topic: Topic) -> [Subtopic] {
+        return subtopics.filter({$0.parentTopicId == topic.uuid})
+    }
+    
 }

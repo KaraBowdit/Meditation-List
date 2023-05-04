@@ -21,7 +21,7 @@
 		17D4EFCD2A01495C006BFE30 /* Subtopic + TLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFCC2A01495C006BFE30 /* Subtopic + TLD.swift */; };
 		17D4EFCF2A014970006BFE30 /* Meditation + TLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFCE2A014970006BFE30 /* Meditation + TLD.swift */; };
 		17D4EFD62A014A1A006BFE30 /* TopicTableViewCell + VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFD52A014A1A006BFE30 /* TopicTableViewCell + VM.swift */; };
-		17D4EFD82A014A23006BFE30 /* SubtopicTableViewCell + VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFD72A014A23006BFE30 /* SubtopicTableViewCell + VM.swift */; };
+		17D4EFD82A014A23006BFE30 /* MeditationTableViewCell + VM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFD72A014A23006BFE30 /* MeditationTableViewCell + VM.swift */; };
 		17D4EFDA2A014A3D006BFE30 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFD92A014A3D006BFE30 /* NetworkService.swift */; };
 		17D4EFDD2A014B31006BFE30 /* TopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFDC2A014B31006BFE30 /* TopicController.swift */; };
 		17D4EFDF2A015888006BFE30 /* SubtopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4EFDE2A015888006BFE30 /* SubtopicController.swift */; };
@@ -68,7 +68,7 @@
 		17D4EFCC2A01495C006BFE30 /* Subtopic + TLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Subtopic + TLD.swift"; sourceTree = "<group>"; };
 		17D4EFCE2A014970006BFE30 /* Meditation + TLD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Meditation + TLD.swift"; sourceTree = "<group>"; };
 		17D4EFD52A014A1A006BFE30 /* TopicTableViewCell + VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TopicTableViewCell + VM.swift"; sourceTree = "<group>"; };
-		17D4EFD72A014A23006BFE30 /* SubtopicTableViewCell + VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubtopicTableViewCell + VM.swift"; sourceTree = "<group>"; };
+		17D4EFD72A014A23006BFE30 /* MeditationTableViewCell + VM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MeditationTableViewCell + VM.swift"; sourceTree = "<group>"; };
 		17D4EFD92A014A3D006BFE30 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		17D4EFDC2A014B31006BFE30 /* TopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicController.swift; sourceTree = "<group>"; };
 		17D4EFDE2A015888006BFE30 /* SubtopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtopicController.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				17D4EFD52A014A1A006BFE30 /* TopicTableViewCell + VM.swift */,
-				17D4EFD72A014A23006BFE30 /* SubtopicTableViewCell + VM.swift */,
+				17D4EFD72A014A23006BFE30 /* MeditationTableViewCell + VM.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,7 +336,7 @@
 				17D4EFCB2A014944006BFE30 /* Topic + TLD.swift in Sources */,
 				17D4EFF02A02ECCB006BFE30 /* Data + Extension.swift in Sources */,
 				17D4EFEC2A02B66A006BFE30 /* MeditationListViewController + VM.swift in Sources */,
-				17D4EFD82A014A23006BFE30 /* SubtopicTableViewCell + VM.swift in Sources */,
+				17D4EFD82A014A23006BFE30 /* MeditationTableViewCell + VM.swift in Sources */,
 				17D4EFA12A0146AD006BFE30 /* Meditation_List.xcdatamodeld in Sources */,
 				17D4EFD62A014A1A006BFE30 /* TopicTableViewCell + VM.swift in Sources */,
 				17D4EF972A0146AD006BFE30 /* AppDelegate.swift in Sources */,

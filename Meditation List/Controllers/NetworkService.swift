@@ -5,7 +5,7 @@
 //  Created by Haley Jones on 5/2/23.
 //
 
-import Foundation
+import UIKit
 
 class NetworkService {
     
@@ -23,14 +23,11 @@ class NetworkService {
         
         fetchTopics(with: fetchGroup) {
             fetchGroup.leave()
-            print("Finished fetching topics. \(TopicController.shared.topics.count) topics.")
         }
         fetchSubTopics(with: fetchGroup) {
             fetchGroup.leave()
-            print("finished fetching Subtopics. \(SubtopicController.shared.subtopics.count) subtopics")
         }
         fetchMeditations(with: fetchGroup) {
-            print("finished fetching meditations. \(MeditationController.shared.meditations.count) meditations.")
             fetchGroup.leave()
         }
         
@@ -121,10 +118,32 @@ class NetworkService {
                 MeditationController.shared.meditations = decodedTLD.meditations
             } else {
                 print("⚠️ There was an error decoding the JSON recieved from the Meditations endpoint.")
-                print(unwrappedData.prettyPrintedJSONString)
             }
             completion()
             return
         }.resume()
+    }
+    
+    func fetchImages(forMeditationsAppearingIn viewModel: MeditationListViewController.ViewModel, completion: @escaping () -> Void) {
+        let imageFetchGroup = DispatchGroup()
+        
+        var relevantMeditations = viewModel.meditations
+        for subtopic in viewModel.subTopics {
+            relevantMeditations.append(contentsOf: subtopic.meditations)
+        }
+        
+        for meditation in relevantMeditations {
+            if let urlString = meditation.imageUrl,
+               let fetchURL = URL(string: urlString) {
+                imageFetchGroup.enter()
+                URLSession.shared.dataTask(with: fetchURL) { data, _, error in
+                    meditation.imageData = data
+                    imageFetchGroup.leave()
+                }.resume()
+            }
+        }
+        imageFetchGroup.notify(queue: .main) {
+            completion()
+        }
     }
 }

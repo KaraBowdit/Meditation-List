@@ -15,6 +15,7 @@ class TopicTableViewCell: UITableViewCell {
         let numberOfMeditations: Int
     }
     
+    private var viewModel: ViewModel?
     let labelStackView = UIStackView()
     let titleLabel = UILabel()
     let countLabel = UILabel()
@@ -29,7 +30,12 @@ class TopicTableViewCell: UITableViewCell {
     }
     
     func makeViewModel(forTopic topic: Topic) -> ViewModel? {
-        return ViewModel(title: topic.title, color: topic.color, numberOfMeditations: topic.meditations.count)
+        var totalMeditations = topic.meditations.count
+        let subtopics = SubtopicController.shared.getSubtopics(for: topic)
+        for subtopic in subtopics {
+            totalMeditations += subtopic.meditationIDs.count
+        }
+        return ViewModel(title: topic.title, color: topic.color, numberOfMeditations: totalMeditations)
     }
     
     func setUpViews() {
@@ -76,16 +82,6 @@ class TopicTableViewCell: UITableViewCell {
             labelStackView.centerYAnchor.constraint(equalTo: cellWrapperView.centerYAnchor),
         ])
         
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 
 }

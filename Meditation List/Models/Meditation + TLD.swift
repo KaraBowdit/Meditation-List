@@ -20,8 +20,9 @@ class Meditation: Decodable {
     let uuid: String
     let title: String
     let teacherName: String
-    let imageUrl: String
+    let imageUrl: String?
     let playCount: Int?
+    var imageData: Data?
     
 }
 

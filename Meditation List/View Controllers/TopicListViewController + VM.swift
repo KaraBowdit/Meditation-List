@@ -9,19 +9,19 @@ import UIKit
 
 class TopicListViewController: UIViewController {
     
+    struct ViewModel {
+        let topics: [Topic]
+    }
+    
     enum Constants {
         static let cellIdentifier = "TopicCell"
         static let pageTitle = "Topics"
         static let backgroundColorHex = "#fbfbfb"
     }
     
-    var viewModel: ViewModel?
+    private var viewModel: ViewModel?
     let tableView = UITableView()
     let titleLabel = UILabel()
-    
-    struct ViewModel {
-        let topics: [Topic]
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,10 +110,17 @@ extension TopicListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let destinationVC = MeditationListViewController()
         let destinationVM = destinationVC.makeViewModel(forTopic: viewModel.topics[indexPath.row])
-        //apply the VM, present the new view
-        destinationVC.apply(viewModel: destinationVM)
-        present(destinationVC, animated: true)
-        return
+        
+        //using the collection on that VM, we can go grab just the images we need
+        NetworkService.shared.fetchImages(forMeditationsAppearingIn: destinationVM) {
+            //apply the VM, present the new view
+            destinationVC.apply(viewModel: destinationVM)
+            DispatchQueue.main.async {
+                tableView.deselectRow(at: indexPath, animated: true)
+                self.navigationController?.pushViewController(destinationVC, animated: true)
+            }
+            return
+        }
     }
 
 }
