@@ -29,20 +29,6 @@ class MeditationListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
-        
-        if let viewModel = viewModel {
-            for subtopic in viewModel.subTopics {
-                print("Subtopic: \(subtopic.title)")
-                for meditation in subtopic.meditations {
-                    print("Title: \(meditation.title) PlayCount: \(meditation.playCount)")
-                }
-            }
-            print("Generic Meditation Section:")
-            for meditation in viewModel.meditations {
-                print("Title: \(meditation.title) PlayCount: \(meditation.playCount)")
-            }
-        }
-        
     }
     
     func setUpViews() {
